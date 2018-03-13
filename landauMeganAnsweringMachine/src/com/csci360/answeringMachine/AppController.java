@@ -77,7 +77,6 @@ public class AppController implements Initializable {
     public Label loginWarning;
     
 
-    
     @FXML
     public void submitNameButtonAction(ActionEvent event) {
         String ownerName = nameInput.getText();
