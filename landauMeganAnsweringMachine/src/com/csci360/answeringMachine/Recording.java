@@ -1,6 +1,7 @@
 /*
- * The code in the play() method was adapted from:
- * https://stackoverflow.com/questions/2416935/how-to-play-wav-files-with-java
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package com.csci360.answeringMachine;
 
@@ -27,18 +28,31 @@ public class Recording {
     	Recorder recorder = new Recorder();
     	recorder.createNewRecording(wavFilePath);
     }
-//    
-//    public static void main(String[] args) {
-//        System.out.println("Working Directory = " +
-//                System.getProperty("user.dir"));
-//        
-//        String wavFilePath = System.getProperty("user.dir") + "/src/com/csci360/answeringMachine/recordings/" + "newMessage.wav";
-//        
-//    	Recording r = new Recording("message_1");
-//    	r.play();
-//    	
+    
+    public static void main(String[] args) {
+        System.out.println("Working Directory = " +
+                System.getProperty("user.dir"));
+        
+        String wavFilePath = System.getProperty("user.dir") + "/src/com/csci360/answeringMachine/recordings/" + "newMessage.wav";
+        
+    	Recording r = new Recording("message_1");
+    	r.play();
+    	
+    }
+    
+
+    
+//    public void setRecording(){
+//    	Recorder recorder = new Recorder();
+//    	recorder.createNewRecording(wavFilePath);
 //    }
     
+//	public void play(){
+//		System.out.println("playing recording");
+//	}
+	
+	
+	////https://stackoverflow.com/questions/2416935/how-to-play-wav-files-with-java
     public void play(){ 
 
         String strFilename = wavFilePath;
@@ -86,6 +100,7 @@ public class Recording {
                 int nBytesWritten = sourceLine.write(abData, 0, nBytesRead);
             }
         }
+
         sourceLine.drain();
         sourceLine.close();
     }

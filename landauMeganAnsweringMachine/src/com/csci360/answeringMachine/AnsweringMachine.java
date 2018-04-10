@@ -5,10 +5,7 @@
  */
 package com.csci360.answeringMachine;
 
-import static com.csci360.answeringMachine.Recorder.RECORD_TIME;
 import java.util.Scanner;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class AnsweringMachine {
 	
@@ -25,8 +22,8 @@ public class AnsweringMachine {
 		//setPasscode();
 		//recordNewGreeting();
                 isSetUp = true;
-                this.ownerName = owner.substring(0, 1).toUpperCase() + owner.substring(1);
-//                System.out.println(owner);
+                this.ownerName = owner;
+                System.out.println(owner);
 	}
         
         public boolean isInitialized(){
@@ -150,113 +147,11 @@ public class AnsweringMachine {
             }
 	}
 	
-        public Passcode getPasscode(){
-            return this.passcode;
-        }
-        
 	// this is basically the user
 	public static void main(String[] args) {
-            
-            Scanner scan = new Scanner(System.in);
-            
-            System.out.println("Let's create an answering machine. What is your name?");
-            String name = scan.nextLine();
-            AnsweringMachine machine = new AnsweringMachine(name);
-            System.out.println("\nChoose a 4-digit passcode:");
-            
-            String trypass = scan.nextLine();
-                    
-            while (!machine.getPasscode().validatePasscode(trypass)){
-                System.out.println("Invalid passcode. Passcodes must be 4-digits long only. Try again.");
-                trypass = scan.nextLine();
-            }
-            
-            System.out.println("Passcode set!");
-            System.out.println("\nNow please record your greeting. You have 5 seconds.");
-            
-//                    Timer t2 = new Timer();
-//                    t2.schedule(new TimerTask() {
-//                        int num = 5;
-//                        @Override
-//                        public void run() {
-//                            if (num>0){
-//                                System.out.println(num);
-//                                num--;
-//                            } else {
-//                                System.out.println("cancelled");
-//                                t2.cancel();
-//                            }
-//
-//                        }
-//                    },1000);
-
-            machine.recordNewGreeting();
-            
-                System.out.println("\nMain Menu:");
-                System.out.println("\t1. New Messages");
-                System.out.println("\t2. Saved Messages");
-                System.out.println("\t3. Settings");
-                System.out.println("\t4. Leave");
-                
-            boolean leftmessage = false;
-            String line = scan.nextLine();
-            while (!line.equals("-1")){
-                if (line.equals("1")){
-                    System.out.println("\nNew Messages");
-                    System.out.println("You have " + machine.newMessages.getNumMessages() + " new messages.");
-                    if (machine.newMessages.getNumMessages() > 0){
-                        for (Message m : machine.newMessages.getMessages()){
-//                            System.out.println(m.messageId);
-                            m.playMessage();
-                        }
-                    }
-                    if (leftmessage){
-                        System.out.println("\nYou are moving your message to saved messages.");
-                        machine.moveNewMessageToSavedMessages(1);
-                        System.out.println("Message moved.");
-                    }
-                } else if (line.equals("2")){
-                    System.out.println("\nSaved Messages");
-                    System.out.println("You have " + machine.savedMessages.getNumMessages() + " saved messages.");
-                    if (machine.savedMessages.getNumMessages() > 0){
-                        for (Message m : machine.savedMessages.getMessages()){
-                            m.playMessage();
-                        }
-                    }              
-                } else if (line.equals("3")){
-                    System.out.println("\n\tSettings:");
-                    System.out.println("\t\t1. Change Passcode");
-                    System.out.println("\t\t2. Play Greeting");
-                    System.out.println("\t\t3. Change Greeting");
-                    
-                    System.out.println("\n\tYou pressed 2 for Play Greeting");
-                    machine.listenToGreeting();
-                    
-                } else if (line.equals("4")){
-                    System.out.println("\nWelcome to " + machine.getOwnerName() + "'s Answering Machine!");
-                    System.out.println("Would you like to Login or Leave a Message?");
-
-                    System.out.println("\nYou chose to leave a message. Your name is Megan. \nLeave a message for " + machine.getOwnerName());
-                    System.out.println("You have 5 seconds to record your message.");
-                    machine.leaveMessage("Megan");
-                    leftmessage = true;
-                    
-                    System.out.println("\nNow you are logging in as " + machine.getOwnerName() + ".");
-//                    machine.authenticatePasscode(machine.passcode.getPasscode());
-                    
-                    System.out.println("Go check your messages.");
-                }
-                System.out.println();
-                System.out.println("\nMain Menu:");
-                System.out.println("\t1. New Messages");
-                System.out.println("\t2. Saved Messages");
-                System.out.println("\t3. Settings");
-                System.out.println("\t4. Leave");
-                line = scan.nextLine();
-            }
-            
-            
-
+		AnsweringMachine a = new AnsweringMachine("Megan");
+		
+		System.out.println("enter passcode");
 //		a.enterPasscode();
 		//Message m = new Message(a.newMessages.getLastIdEntered());
 		
