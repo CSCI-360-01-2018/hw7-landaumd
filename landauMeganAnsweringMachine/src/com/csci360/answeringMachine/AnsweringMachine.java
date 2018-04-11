@@ -1,6 +1,7 @@
 /* CSCI 360 - Software Architecture
  * Dr. Jim Bowring
  *
+ * Simple Answering Machine Project
  * @author: Megan Landau
  */
 package com.csci360.answeringMachine;

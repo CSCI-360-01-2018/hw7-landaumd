@@ -1,6 +1,8 @@
-/*
- * The code in the play() method was adapted from:
- * https://stackoverflow.com/questions/2416935/how-to-play-wav-files-with-java
+/* CSCI 360 - Software Architecture
+ * Dr. Jim Bowring
+ *
+ * Simple Answering Machine Project
+ * @author: Megan Landau
  */
 package com.csci360.answeringMachine;
 

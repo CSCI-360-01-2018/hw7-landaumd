@@ -1,6 +1,8 @@
-/*
- * This code has been adapted from this post:
- * http://www.codejava.net/coding/capture-and-record-sound-into-wav-file-with-java-sound-api
+/* CSCI 360 - Software Architecture
+ * Dr. Jim Bowring
+ *
+ * Simple Answering Machine Project
+ * @author: Megan Landau
  */
 package com.csci360.answeringMachine;
 
@@ -10,7 +12,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class Recorder {
-    protected static final long RECORD_TIME = 5000;  // 5 secs
+    protected static final long RECORD_TIME = 5000;  // 5 sec
     protected File wavFile;
     protected AudioFileFormat.Type fileType = AudioFileFormat.Type.WAVE;
     protected TargetDataLine line;
